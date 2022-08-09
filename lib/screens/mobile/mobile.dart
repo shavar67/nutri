@@ -1,4 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:nuclear/constants/strings.dart';
+import 'package:nuclear/theme/styles.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/route_constants.dart';
@@ -17,17 +20,19 @@ class _MobileViewState extends State<MobileView> {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
         appBar: AppBar(
-            title: Text(
-              'Home',
+            title: AutoSizeText(
+              Strings.homeTitle,
               style: TextStyle(
-                  color:
-                      themeProvider.getDarkTheme ? Colors.white : Colors.black),
+                  color: themeProvider.getDarkTheme
+                      ? Styles.white
+                      : Styles.defaultDarkModeBg),
             ),
             actions: [
           GestureDetector(
-            child: Icon(Icons.settings,
-                color:
-                    themeProvider.getDarkTheme ? Colors.white : Colors.black),
+            child: Icon(Icons.settings_outlined,
+                color: themeProvider.getDarkTheme
+                    ? Styles.white
+                    : Styles.defaultDarkModeBg),
             onTap: () async {
               await Navigator.of(context).pushNamed(settingsRoute);
             },

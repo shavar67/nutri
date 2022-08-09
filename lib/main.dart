@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:logger/logger.dart';
 import 'package:nuclear/constants/route_constants.dart';
 import 'package:nuclear/model/theme_provider.dart';
@@ -9,6 +10,10 @@ import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(MultiProvider(
     providers: [Provider<ThemeProvider>(create: (_) => ThemeProvider())],
     child: const MyApp(),
@@ -46,6 +51,7 @@ class _MyAppState extends State<MyApp> {
         child: Consumer<ThemeProvider>(
           builder: (BuildContext context, value, Widget? child) {
             return MaterialApp(
+                debugShowCheckedModeBanner: false,
                 title: 'Flutter Demo',
                 theme: !_themeProvider.getDarkTheme
                     ? AppTheme.lightTheme

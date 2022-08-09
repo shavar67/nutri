@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:nuclear/screens/shared/settings_responsive.dart';
 
 import '../constants/route_constants.dart';
 import '../screens/shared/home.dart';
-import '../screens/shared/settings.dart';
 
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -10,7 +10,7 @@ class AppRouter {
       case homeRoute:
         return MaterialPageRoute(builder: (_) => const Home());
       case settingsRoute:
-        return MaterialPageRoute(builder: (_) => const Settings());
+        return MaterialPageRoute(builder: (_) => const Preference());
 
       default:
         return MaterialPageRoute(builder: (_) => const Home());
