@@ -31,14 +31,9 @@ class _MobileSettingOptionsState extends State<MobileSettingOptions> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            SizedBox(
-              height: size.height * 0.03,
-              child: const FittedBox(
-                child: AutoSizeText(
-                  Strings.settingsPanelHeader,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
+            const AutoSizeText(
+              Strings.settingsPanelHeader,
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
             Container(

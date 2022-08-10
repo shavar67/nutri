@@ -55,9 +55,6 @@ class _TabletViewState extends State<TabletView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: size.height * 0.05),
-                AutoSizeText.rich(
-                  TextSpan(text: 'selected: $_selectedIndex'),
-                )
               ],
             ),
           ))),
