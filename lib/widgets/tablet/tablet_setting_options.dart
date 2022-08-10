@@ -27,11 +27,9 @@ class _TabletSettingOptionsState extends State<TabletSettingOptions> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 10),
-            const FittedBox(
-              child: AutoSizeText(
-                Strings.settingsPanelHeader,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
+            const AutoSizeText(
+              Strings.settingsPanelHeader,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             const SizedBox(height: 20),
             Container(
