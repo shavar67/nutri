@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "532745856576",
+    "project_id": "nutri-45d59",
+    "storage_bucket": "nutri-45d59.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532745856576:android:f0ebc537559b6dd988a1a5",
+        "android_client_info": {
+          "package_name": "com.example.nuclear"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532745856576-0jtmc2q92pml3o4fd8mgviotdbs349om.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOxi3KaH3ltDSgpCnBxe20eHTysXOE4nY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532745856576-0jtmc2q92pml3o4fd8mgviotdbs349om.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
