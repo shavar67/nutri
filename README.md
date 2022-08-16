@@ -1,7 +1,3 @@
-### nuclear
+#### Nutri 
 
-UI/UX based project.
-Long term project, will remain private until the forseeable future.
-# nutri
-# nutri
-# nutri
+### Nutri - The food nutrition app where users create, share, and discover new recipes.

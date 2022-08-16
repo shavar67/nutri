@@ -4,5 +4,5 @@ class Strings {
   static const lightModeDescription =
       'Nuclear will always use a light theme appearance.';
   static const settingsPanelHeader = 'Display Preferences';
-  static const homeTitle = 'Home';
+  static const homeTitle = 'Nutri';
 }
