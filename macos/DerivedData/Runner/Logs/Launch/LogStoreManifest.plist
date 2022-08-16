@@ -2,9 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LastAccessedDate</key>
-	<date>2022-08-16T07:32:19Z</date>
-	<key>WorkspacePath</key>
-	<string>/Users/var/Desktop/products/nutri/Nuclear/macos/Runner.xcworkspace</string>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict/>
 </dict>
 </plist>
