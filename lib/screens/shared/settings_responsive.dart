@@ -7,8 +7,8 @@ import 'package:nuclear/widgets/mobile/mobile_setting_options.dart';
 import 'package:provider/provider.dart';
 
 import '../../model/theme_provider.dart';
+import '../../tablet/tablet_setting_options.dart';
 import '../../widgets/desktop/desktop_setting_option.dart';
-import '../../widgets/tablet/tablet_setting_options.dart';
 
 class Preference extends StatefulWidget {
   const Preference({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class Preference extends StatefulWidget {
 class _PreferenceState extends State<Preference> {
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
+    final themeProvider = context.watch<ThemeProvider>();
 
     Size size = MediaQuery.of(context).size;
     return Scaffold(

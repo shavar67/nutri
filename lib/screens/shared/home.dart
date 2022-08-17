@@ -1,11 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:nuclear/screens/mobile/login.dart';
 import 'package:nuclear/screens/mobile/mobile.dart';
 import 'package:nuclear/screens/tablet/tablet.dart';
 import 'package:provider/provider.dart';
 
-import '../../firebase_auth/auth.dart';
-import '../../firebase_auth/authenticator.dart';
+import '../../firebase_auth/auth_service..dart';
 import '../../layout/responsive_layout.dart';
 import '../desktop/desktop.dart';
 
@@ -21,7 +20,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final authService = context.watch<AuthService>();
 
-    return StreamBuilder<User?>(
+    return StreamBuilder(
         initialData: authService.currentUser,
         stream: authService.authStateChange,
         builder: (context, snapshot) {
@@ -29,7 +28,7 @@ class _HomeState extends State<Home> {
             return const ResponsiveLayout(
                 mobile: MobileView(), tablet: TabletView(), desktop: Desktop());
           } else {
-            return const Authenticator();
+            return const MobileLoginView();
           }
         });
   }

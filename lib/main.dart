@@ -4,10 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:logger/logger.dart';
 import 'package:nuclear/constants/route_constants.dart';
-import 'package:nuclear/firebase_auth/auth.dart';
-import 'package:nuclear/firebase_auth/authenticator.dart';
+import 'package:nuclear/firebase_auth/auth_service..dart';
 import 'package:nuclear/model/theme_provider.dart';
 import 'package:nuclear/routes/router.dart';
+import 'package:nuclear/screens/shared/home.dart';
 import 'package:nuclear/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -31,9 +31,8 @@ Future<void> main() async {
 
 void configLoading() {
   EasyLoading.instance
-    ..displayDuration = const Duration(milliseconds: 2000)
+    ..displayDuration = const Duration(milliseconds: 100)
     ..indicatorType = EasyLoadingIndicatorType.fadingCircle
-    ..loadingStyle = EasyLoadingStyle.dark
     ..indicatorSize = 45.0
     ..radius = 10.0
     ..progressColor = Colors.yellow
@@ -81,10 +80,10 @@ class _MyAppState extends State<MyApp> {
                 theme: !_themeProvider.getDarkTheme
                     ? AppTheme.lightTheme
                     : AppTheme.darkTheme,
-                initialRoute: authRoute,
+                initialRoute: homeRoute,
                 builder: EasyLoading.init(),
                 onGenerateRoute: AppRouter.generateRoute,
-                home: const Authenticator());
+                home: const Home());
           },
         ));
   }

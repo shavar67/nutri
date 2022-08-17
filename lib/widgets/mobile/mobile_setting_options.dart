@@ -1,19 +1,20 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:nuclear/constants/route_constants.dart';
 import 'package:nuclear/theme/styles.dart';
 import 'package:provider/provider.dart';
 
 import '../../../model/theme_provider.dart';
 import '../../../utils/spacers.dart';
 import '../../constants/strings.dart';
-import '../../firebase_auth/auth.dart';
+import '../../firebase_auth/auth_service..dart';
 
 class MobileSettingOptions extends StatelessWidget {
   const MobileSettingOptions({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = context.read<ThemeProvider>();
+    final themeProvider = context.watch<ThemeProvider>();
 
     final auth = context.watch<AuthService>();
 
@@ -50,8 +51,13 @@ class MobileSettingOptions extends StatelessWidget {
                 ]),
                 trailing: GestureDetector(
                   child: const Icon(Icons.logout_outlined),
-                  onTap: () async {
-                    await auth.signOut();
+                  onTap: () {
+                    auth.signOut();
+                    /**
+                     * !! hmm, shouldn't have to call this method explicitly.
+                     * 
+                     */
+                    Navigator.of(context).popAndPushNamed(authRoute);
                   },
                 ),
               ),
