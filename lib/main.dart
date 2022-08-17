@@ -6,6 +6,7 @@ import 'package:logger/logger.dart';
 import 'package:nuclear/constants/route_constants.dart';
 import 'package:nuclear/model/theme_provider.dart';
 import 'package:nuclear/routes/router.dart';
+import 'package:nuclear/screens/shared/auth.dart';
 import 'package:nuclear/screens/shared/home.dart';
 import 'package:nuclear/theme/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +21,10 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
   ]);
   runApp(MultiProvider(
-    providers: [Provider<ThemeProvider>(create: (_) => ThemeProvider())],
+    providers: [
+      Provider<ThemeProvider>(create: (_) => ThemeProvider()),
+      Provider<Auth>(create: (_) => Auth())
+    ],
     child: const MyApp(),
   ));
 }
@@ -80,7 +84,7 @@ class _MyAppState extends State<MyApp> {
                 initialRoute: homeRoute,
                 builder: EasyLoading.init(),
                 onGenerateRoute: AppRouter.generateRoute,
-                home: Home());
+                home: const Home());
           },
         ));
   }

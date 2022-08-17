@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:nuclear/constants/strings.dart';
 import 'package:nuclear/screens/shared/auth.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +18,7 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
-
+  String? errorMessage = '';
   final _formkey = GlobalKey<FormState>();
   final _scaffoldkey = GlobalKey<ScaffoldState>();
   var logger = Logger(
@@ -65,7 +67,7 @@ class _SignUpState extends State<SignUp> {
     final auth = context.read<Auth>();
     return Scaffold(
       key: _scaffoldkey,
-      appBar: AppBar(title: const Text('FireCast')),
+      appBar: AppBar(title: const Text(Strings.homeTitle)),
       body: Form(
         key: _formkey,
         child: SizedBox(
@@ -114,13 +116,10 @@ class _SignUpState extends State<SignUp> {
                     callBack: () async {
                       if (_formkey.currentState!.validate()) {
                         _formkey.currentState!.save();
-
-                        auth.signUp(_emailController.text.trim(),
-                            _passwordController.text.trim());
+                        createUserWithEmailAndPassword();
                         logger.d(auth.currentUser?.email);
                         Navigator.of(context).pushReplacementNamed(homeRoute);
                       }
-                      return;
                     }),
                 const Spacer(),
                 Row(
@@ -141,6 +140,17 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
     );
+  }
+
+  Future<void> createUserWithEmailAndPassword() async {
+    try {
+      await Auth().signUp(
+          _emailController.text.trim(), _passwordController.text.trim());
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
   }
 
   @override

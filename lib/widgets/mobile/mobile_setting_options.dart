@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:nuclear/screens/shared/auth.dart';
 import 'package:nuclear/theme/styles.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +21,9 @@ class _MobileSettingOptionsState extends State<MobileSettingOptions> {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
+    final themeProvider = context.read<ThemeProvider>();
+
+    final auth = Provider.of<Auth>(context);
 
     Size size = MediaQuery.of(context).size;
     return Padding(
@@ -30,6 +33,23 @@ class _MobileSettingOptionsState extends State<MobileSettingOptions> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            ListTile(
+              leading: CircleAvatar(
+                backgroundColor: themeProvider.getDarkTheme
+                    ? Styles.greyShade900
+                    : Styles.white,
+                child:
+                    Text(auth.currentUser!.uid.substring(0, 2).toUpperCase()),
+              ),
+              title: const Text('Sign Out'),
+              trailing: GestureDetector(
+                child: const Icon(Icons.logout_outlined),
+                onTap: () async {
+                  await auth.signOut();
+                },
+              ),
+            ),
+            const Divider(),
             const SizedBox(height: 20),
             const AutoSizeText(
               Strings.settingsPanelHeader,

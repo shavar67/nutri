@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:nuclear/constants/strings.dart';
 import 'package:nuclear/screens/shared/auth.dart';
 import 'package:provider/provider.dart';
 
@@ -14,9 +16,10 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
-  final bool signUp = true;
-  late TextEditingController _emailController;
-  late TextEditingController _passwordController;
+  final bool isLogin = true;
+  String? errorMessage = '';
+  late final TextEditingController _emailController;
+  late final TextEditingController _passwordController;
   final _formkey = GlobalKey<FormState>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final _emailRegex = RegExp(
@@ -67,7 +70,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       key: _scaffoldKey,
-      appBar: AppBar(title: const Text('Authentication')),
+      appBar: AppBar(title: const Text(Strings.homeTitle)),
       body: Form(
         key: _formkey,
         child: SizedBox(
@@ -97,6 +100,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                   decoration: const InputDecoration(labelText: 'Email'),
                 ),
                 TextFormField(
+                  enableIMEPersonalizedLearning: true,
                   validator: _passwordInputValidator,
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: isObscured,
@@ -123,8 +127,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         callBack: () async {
                           if (_formkey.currentState!.validate()) {
                             _formkey.currentState!.save();
-                            authService.signIn(_emailController.text.trim(),
-                                _passwordController.text.trim());
+                            await signInWithEmailAndPassword();
                           }
                           return;
                         }),
@@ -160,6 +163,17 @@ class _LoginWidgetState extends State<LoginWidget> {
         ),
       ),
     );
+  }
+
+  Future<void> signInWithEmailAndPassword() async {
+    try {
+      await Auth().signIn(
+          _emailController.text.trim(), _passwordController.text.trim());
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
   }
 
   @override

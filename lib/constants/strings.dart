@@ -5,4 +5,5 @@ class Strings {
       '$homeTitle will always use a light theme appearance.';
   static const settingsPanelHeader = 'Display Preferences';
   static const homeTitle = 'Nutri';
+  static const accountPanelHeader = 'Account';
 }
