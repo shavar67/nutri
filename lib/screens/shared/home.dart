@@ -20,6 +20,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final authService = context.watch<AuthService>();
+
     return StreamBuilder<User?>(
         initialData: authService.currentUser,
         stream: authService.authStateChange,

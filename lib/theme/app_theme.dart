@@ -6,7 +6,7 @@ class AppTheme {
       appBarTheme: const AppBarTheme(elevation: 0, color: Styles.white),
       visualDensity: VisualDensity.adaptivePlatformDensity,
       brightness: Brightness.light,
-      scaffoldBackgroundColor: Styles.white.withOpacity(0.95));
+      scaffoldBackgroundColor: Styles.lightBgColor);
 
   static get darkTheme => ThemeData.dark().copyWith(
       appBarTheme:

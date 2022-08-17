@@ -33,7 +33,6 @@ class AuthService {
     } on FirebaseException catch (e) {
       await EasyLoading.showError(e.message.toString());
       logger.e(e.message);
-      return;
     }
   }
 
@@ -44,8 +43,6 @@ class AuthService {
       if (_firebaseAuth.currentUser == null) {
         logger.d('user has signed out');
       }
-
-      return;
     } on FirebaseException catch (e) {
       logger.e(e.message ?? 'something went wrong');
       await EasyLoading.showError(e.message ?? 'something went wrong');

@@ -1,12 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:nuclear/constants/auth/auth.dart';
 import 'package:nuclear/theme/styles.dart';
 import 'package:provider/provider.dart';
 
 import '../../../model/theme_provider.dart';
 import '../../../utils/spacers.dart';
 import '../../constants/strings.dart';
+import '../../firebase_auth/auth.dart';
 
 class MobileSettingOptions extends StatelessWidget {
   const MobileSettingOptions({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class MobileSettingOptions extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeProvider = context.read<ThemeProvider>();
 
-    final auth = context.watch<Auth>();
+    final auth = context.watch<AuthService>();
 
     Size size = MediaQuery.of(context).size;
     return Padding(
