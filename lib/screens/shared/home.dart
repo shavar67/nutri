@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:nuclear/constants/auth/auth.dart';
 import 'package:nuclear/screens/mobile/mobile.dart';
-import 'package:nuclear/screens/shared/auth.dart';
 import 'package:nuclear/screens/shared/login.dart';
 import 'package:nuclear/screens/tablet/tablet.dart';
 

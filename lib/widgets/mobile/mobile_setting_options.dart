@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
-import 'package:nuclear/screens/shared/auth.dart';
+import 'package:nuclear/constants/auth/auth.dart';
 import 'package:nuclear/theme/styles.dart';
 import 'package:provider/provider.dart';
 
@@ -9,21 +8,14 @@ import '../../../model/theme_provider.dart';
 import '../../../utils/spacers.dart';
 import '../../constants/strings.dart';
 
-class MobileSettingOptions extends StatefulWidget {
+class MobileSettingOptions extends StatelessWidget {
   const MobileSettingOptions({Key? key}) : super(key: key);
-
-  @override
-  State<MobileSettingOptions> createState() => _MobileSettingOptionsState();
-}
-
-class _MobileSettingOptionsState extends State<MobileSettingOptions> {
-  var logger = Logger(printer: PrettyPrinter());
 
   @override
   Widget build(BuildContext context) {
     final themeProvider = context.read<ThemeProvider>();
 
-    final auth = Provider.of<Auth>(context);
+    final auth = context.watch<Auth>();
 
     Size size = MediaQuery.of(context).size;
     return Padding(
@@ -33,20 +25,35 @@ class _MobileSettingOptionsState extends State<MobileSettingOptions> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ListTile(
-              leading: CircleAvatar(
-                backgroundColor: themeProvider.getDarkTheme
-                    ? Styles.greyShade900
-                    : Styles.white,
-                child:
-                    Text(auth.currentUser!.uid.substring(0, 2).toUpperCase()),
-              ),
-              title: const Text('Sign Out'),
-              trailing: GestureDetector(
-                child: const Icon(Icons.logout_outlined),
-                onTap: () async {
-                  await auth.signOut();
-                },
+            const AutoSizeText(Strings.accountPanelHeader,
+                style: TextStyle(fontWeight: FontWeight.bold)),
+            const SizedBox(height: 20),
+            Container(
+              width: size.width * 90,
+              height: size.height * 0.08,
+              decoration: BoxDecoration(
+                  color: themeProvider.getDarkTheme
+                      ? Styles.greyShade900
+                      : Styles.white,
+                  borderRadius: BorderRadius.circular(8)),
+              child: ListTile(
+                title: const Text('Account Status'),
+                leading: CircleAvatar(
+                  child: Text(
+                      auth.currentUser?.uid.substring(0, 2).toUpperCase() ??
+                          ''),
+                ),
+                subtitle: Row(children: const [
+                  Text('Active'),
+                  SizedBox(width: 10),
+                  CircleAvatar(radius: 6, backgroundColor: Colors.green)
+                ]),
+                trailing: GestureDetector(
+                  child: const Icon(Icons.logout_outlined),
+                  onTap: () async {
+                    await auth.signOut();
+                  },
+                ),
               ),
             ),
             const Divider(),
@@ -72,9 +79,11 @@ class _MobileSettingOptionsState extends State<MobileSettingOptions> {
                     subtitle: themeProvider.getDarkTheme
                         ? const AutoSizeText(Strings.darkModeDescription)
                         : const AutoSizeText(Strings.lightModeDescription),
-                    leading: !themeProvider.getDarkTheme
-                        ? const Icon(Icons.light_mode_outlined)
-                        : const Icon(Icons.mode_night_outlined),
+                    leading: CircleAvatar(
+                      child: !themeProvider.getDarkTheme
+                          ? const Icon(Icons.light_mode_outlined)
+                          : const Icon(Icons.mode_night_outlined),
+                    ),
                     title: const AutoSizeText(Strings.settingsPanelHeader),
                     trailing: Switch.adaptive(
                         value: themeProvider.getDarkTheme,

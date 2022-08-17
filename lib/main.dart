@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:logger/logger.dart';
+import 'package:nuclear/constants/auth/auth.dart';
 import 'package:nuclear/constants/route_constants.dart';
 import 'package:nuclear/model/theme_provider.dart';
 import 'package:nuclear/routes/router.dart';
-import 'package:nuclear/screens/shared/auth.dart';
 import 'package:nuclear/screens/shared/home.dart';
 import 'package:nuclear/theme/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -76,7 +76,7 @@ class _MyAppState extends State<MyApp> {
         child: Consumer<ThemeProvider>(
           builder: (BuildContext context, value, Widget? child) {
             return MaterialApp(
-                debugShowCheckedModeBanner: false,
+                debugShowCheckedModeBanner: true,
                 title: 'Flutter Demo',
                 theme: !_themeProvider.getDarkTheme
                     ? AppTheme.lightTheme

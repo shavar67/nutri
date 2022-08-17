@@ -1,8 +1,10 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:nuclear/constants/auth/auth.dart';
 import 'package:nuclear/constants/strings.dart';
-import 'package:nuclear/screens/shared/auth.dart';
+import 'package:nuclear/model/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/route_constants.dart';
@@ -65,12 +67,17 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final authService = context.watch<Auth>();
-
+    final authService = context.read<Auth>();
+    final themeProvider = context.watch<ThemeProvider>();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       key: _scaffoldKey,
-      appBar: AppBar(title: const Text(Strings.homeTitle)),
+      appBar: AppBar(
+          title: AutoSizeText(
+        Strings.homeTitle,
+        style: TextStyle(
+            color: themeProvider.getDarkTheme ? Colors.white : Colors.black),
+      )),
       body: Form(
         key: _formkey,
         child: SizedBox(
