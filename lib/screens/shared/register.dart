@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:nuclear/constants/auth/auth.dart';
+import 'package:nuclear/auth/auth.dart';
 import 'package:nuclear/constants/strings.dart';
 import 'package:provider/provider.dart';
 
@@ -64,7 +64,7 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    final auth = context.read<Auth>();
+    final auth = context.read<AuthService>();
     return Scaffold(
       key: _scaffoldkey,
       appBar: AppBar(title: const Text(Strings.homeTitle)),
@@ -113,12 +113,19 @@ class _SignUpState extends State<SignUp> {
                 const SizedBox(height: 30),
                 CustomButton(
                     title: 'Register',
-                    callBack: () async {
+                    callBack: () {
                       if (_formkey.currentState!.validate()) {
                         _formkey.currentState!.save();
-                        createUserWithEmailAndPassword();
-                        logger.d(auth.currentUser?.email);
-                        Navigator.of(context).pushReplacementNamed(homeRoute);
+                        try {
+                          auth.signUp(_emailController.text.trim(),
+                              _passwordController.text.trim());
+                          logger.d(auth.currentUser?.email);
+                          Navigator.of(context).pushReplacementNamed(homeRoute);
+                        } on FirebaseAuthException catch (e) {
+                          setState(() {
+                            errorMessage = e.message;
+                          });
+                        }
                       }
                     }),
                 const Spacer(),
@@ -140,17 +147,6 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
     );
-  }
-
-  Future<void> createUserWithEmailAndPassword() async {
-    try {
-      await Auth().signUp(
-          _emailController.text.trim(), _passwordController.text.trim());
-    } on FirebaseAuthException catch (e) {
-      setState(() {
-        errorMessage = e.message;
-      });
-    }
   }
 
   @override

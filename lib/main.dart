@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:logger/logger.dart';
-import 'package:nuclear/constants/auth/auth.dart';
 import 'package:nuclear/constants/route_constants.dart';
+import 'package:nuclear/firebase_auth/auth.dart';
+import 'package:nuclear/firebase_auth/authenticator.dart';
 import 'package:nuclear/model/theme_provider.dart';
 import 'package:nuclear/routes/router.dart';
-import 'package:nuclear/screens/shared/home.dart';
 import 'package:nuclear/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -23,7 +23,7 @@ Future<void> main() async {
   runApp(MultiProvider(
     providers: [
       Provider<ThemeProvider>(create: (_) => ThemeProvider()),
-      Provider<Auth>(create: (_) => Auth())
+      Provider<AuthService>(create: (_) => AuthService())
     ],
     child: const MyApp(),
   ));
@@ -81,10 +81,10 @@ class _MyAppState extends State<MyApp> {
                 theme: !_themeProvider.getDarkTheme
                     ? AppTheme.lightTheme
                     : AppTheme.darkTheme,
-                initialRoute: homeRoute,
+                initialRoute: authRoute,
                 builder: EasyLoading.init(),
                 onGenerateRoute: AppRouter.generateRoute,
-                home: const Home());
+                home: const Authenticator());
           },
         ));
   }

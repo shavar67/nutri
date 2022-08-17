@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nuclear/screens/shared/regsiter.dart';
+import 'package:nuclear/screens/shared/register.dart';
 import 'package:nuclear/screens/shared/settings_responsive.dart';
 
 import '../constants/route_constants.dart';
@@ -15,7 +15,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const Preference());
       case loginRoute:
         return MaterialPageRoute(builder: (context) => const LoginWidget());
-      case registerRoute:
+      case signUpRoute:
         return MaterialPageRoute(builder: (context) => const SignUp());
       default:
         return MaterialPageRoute(builder: (_) => const Home());
