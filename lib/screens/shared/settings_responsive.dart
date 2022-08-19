@@ -1,14 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:nuclear/constants/strings.dart';
 import 'package:nuclear/layout/responsive_layout.dart';
 import 'package:nuclear/theme/styles.dart';
 import 'package:nuclear/widgets/mobile/mobile_setting_options.dart';
 import 'package:provider/provider.dart';
 
 import '../../model/theme_provider.dart';
-import '../../tablet/tablet_setting_options.dart';
 import '../../widgets/desktop/desktop_setting_option.dart';
+import '../../widgets/tablet/tablet_setting_options.dart';
 
 class Preference extends StatefulWidget {
   const Preference({Key? key}) : super(key: key);
@@ -41,7 +40,7 @@ class _PreferenceState extends State<Preference> {
                         Icon(Icons.arrow_back_ios_new,
                             color: Styles.defaultIconColor),
                         AutoSizeText(
-                          Strings.homeTitle,
+                          'Home',
                           style: TextStyle(color: Styles.defaultIconColor),
                         )
                       ]))))),

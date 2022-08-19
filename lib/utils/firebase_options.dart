@@ -67,8 +67,9 @@ class DefaultFirebaseOptions {
     messagingSenderId: '532745856576',
     projectId: 'nutri-45d59',
     storageBucket: 'nutri-45d59.appspot.com',
-    iosClientId: '532745856576-nt14fqn8mal13tdr3i8iarlu7g27lp3g.apps.googleusercontent.com',
-    iosBundleId: 'com.example.nuclear',
+    iosClientId:
+        '532745856576-nt14fqn8mal13tdr3i8iarlu7g27lp3g.apps.googleusercontent.com',
+    iosBundleId: 'dev.nutri.io',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '532745856576',
     projectId: 'nutri-45d59',
     storageBucket: 'nutri-45d59.appspot.com',
-    iosClientId: '532745856576-nt14fqn8mal13tdr3i8iarlu7g27lp3g.apps.googleusercontent.com',
+    iosClientId:
+        '532745856576-nt14fqn8mal13tdr3i8iarlu7g27lp3g.apps.googleusercontent.com',
     iosBundleId: 'com.example.nuclear',
   );
 }

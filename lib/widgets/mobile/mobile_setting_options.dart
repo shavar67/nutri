@@ -31,7 +31,7 @@ class MobileSettingOptions extends StatelessWidget {
             const SizedBox(height: 20),
             Container(
               width: size.width * 90,
-              height: size.height * 0.08,
+              height: size.height * 0.10,
               decoration: BoxDecoration(
                   color: themeProvider.getDarkTheme
                       ? Styles.greyShade900

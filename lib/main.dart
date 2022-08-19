@@ -6,12 +6,13 @@ import 'package:logger/logger.dart';
 import 'package:nuclear/constants/route_constants.dart';
 import 'package:nuclear/firebase_auth/auth_service..dart';
 import 'package:nuclear/model/theme_provider.dart';
+import 'package:nuclear/provider/recipe_provider.dart';
 import 'package:nuclear/routes/router.dart';
 import 'package:nuclear/screens/shared/home.dart';
 import 'package:nuclear/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 
-import 'firebase_options.dart';
+import 'utils/firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,8 @@ Future<void> main() async {
   runApp(MultiProvider(
     providers: [
       Provider<ThemeProvider>(create: (_) => ThemeProvider()),
-      Provider<AuthService>(create: (_) => AuthService())
+      Provider<AuthService>(create: (_) => AuthService()),
+      ChangeNotifierProvider<RecipeProvider>(create: (_) => RecipeProvider())
     ],
     child: const MyApp(),
   ));
