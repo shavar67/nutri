@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nuclear/provider/recipe_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:logger/logger.dart';
 
 class MobileFeed extends StatefulWidget {
   const MobileFeed({Key? key}) : super(key: key);
@@ -10,6 +9,8 @@ class MobileFeed extends StatefulWidget {
 }
 
 class _MobileFeedState extends State<MobileFeed> {
+  Logger logger = Logger();
+  bool isLoading = true;
   @override
   void initState() {
     super.initState();
@@ -17,13 +18,10 @@ class _MobileFeedState extends State<MobileFeed> {
 
   @override
   Widget build(BuildContext context) {
-    final recipeProvider = Provider.of<RecipeProvider>(context);
-    return recipeProvider.loading
-        ? const Center(child: CircularProgressIndicator())
-        : ListView.builder(
-            itemCount: recipeProvider.meals.length,
-            itemBuilder: ((context, index) {
-              return ListTile(title: Text('${recipeProvider.meals.length}'));
-            }));
+    return SingleChildScrollView(
+      child: Column(children: const [
+        Text('lorem ipsum'),
+      ]),
+    );
   }
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/strings.dart';
-import '../../model/theme_provider.dart';
+import '../../provider/theme_provider.dart';
 import '../../theme/styles.dart';
 import '../../utils/spacers.dart';
 

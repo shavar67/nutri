@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:nuclear/model/theme_provider.dart';
+import 'package:nuclear/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/route_constants.dart';

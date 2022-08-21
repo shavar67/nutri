@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nuclear/screens/mobile/create_recipe_view.dart';
 import 'package:nuclear/screens/mobile/mobile_feed.dart';
 
 class NavSwitcher {
@@ -20,10 +21,7 @@ class NavSwitcher {
 
       case 2:
         {
-          return Container(
-              child: const Center(
-            child: Text('No favorite recipes at the moment.'),
-          ));
+          return const CreateRecipeView();
         }
 
       default:

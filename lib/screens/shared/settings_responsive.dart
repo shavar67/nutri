@@ -5,7 +5,7 @@ import 'package:nuclear/theme/styles.dart';
 import 'package:nuclear/widgets/mobile/mobile_setting_options.dart';
 import 'package:provider/provider.dart';
 
-import '../../model/theme_provider.dart';
+import '../../provider/theme_provider.dart';
 import '../../widgets/desktop/desktop_setting_option.dart';
 import '../../widgets/tablet/tablet_setting_options.dart';
 

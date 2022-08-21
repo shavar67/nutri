@@ -4,10 +4,10 @@ import 'package:nuclear/constants/route_constants.dart';
 import 'package:nuclear/theme/styles.dart';
 import 'package:provider/provider.dart';
 
-import '../../../model/theme_provider.dart';
 import '../../../utils/spacers.dart';
 import '../../constants/strings.dart';
 import '../../firebase_auth/auth_service..dart';
+import '../../provider/theme_provider.dart';
 
 class MobileSettingOptions extends StatelessWidget {
   const MobileSettingOptions({Key? key}) : super(key: key);

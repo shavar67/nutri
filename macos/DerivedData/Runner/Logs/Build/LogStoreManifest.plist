@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>31535096-CFE7-457C-8D83-35B5BA9DB726</key>
+		<key>399A58D2-4E27-45E7-AA2D-04F3A913AF73</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>31535096-CFE7-457C-8D83-35B5BA9DB726.xcactivitylog</string>
+			<string>399A58D2-4E27-45E7-AA2D-04F3A913AF73.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -32,13 +32,47 @@
 			<key>signature</key>
 			<string>Cleaning workspace Runner with scheme Runner</string>
 			<key>timeStartedRecording</key>
-			<real>682400902.48687696</real>
+			<real>682614263.46957898</real>
 			<key>timeStoppedRecording</key>
-			<real>682400902.54357898</real>
+			<real>682614263.52077496</real>
 			<key>title</key>
 			<string>Cleaning workspace Runner with scheme Runner</string>
 			<key>uniqueIdentifier</key>
-			<string>31535096-CFE7-457C-8D83-35B5BA9DB726</string>
+			<string>399A58D2-4E27-45E7-AA2D-04F3A913AF73</string>
+		</dict>
+		<key>60B226BB-2819-4DA8-B381-8F8C57E49AD2</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>60B226BB-2819-4DA8-B381-8F8C57E49AD2.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Runner project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Flutter Assemble</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Cleaning workspace Runner with scheme Flutter Assemble</string>
+			<key>timeStartedRecording</key>
+			<real>682614262.46989202</real>
+			<key>timeStoppedRecording</key>
+			<real>682614262.53893697</real>
+			<key>title</key>
+			<string>Cleaning workspace Runner with scheme Flutter Assemble</string>
+			<key>uniqueIdentifier</key>
+			<string>60B226BB-2819-4DA8-B381-8F8C57E49AD2</string>
 		</dict>
 	</dict>
 </dict>

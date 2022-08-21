@@ -5,8 +5,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:logger/logger.dart';
 import 'package:nuclear/constants/route_constants.dart';
 import 'package:nuclear/firebase_auth/auth_service..dart';
-import 'package:nuclear/model/theme_provider.dart';
-import 'package:nuclear/provider/recipe_provider.dart';
+import 'package:nuclear/provider/theme_provider.dart';
 import 'package:nuclear/routes/router.dart';
 import 'package:nuclear/screens/shared/home.dart';
 import 'package:nuclear/theme/app_theme.dart';
@@ -25,7 +24,6 @@ Future<void> main() async {
     providers: [
       Provider<ThemeProvider>(create: (_) => ThemeProvider()),
       Provider<AuthService>(create: (_) => AuthService()),
-      ChangeNotifierProvider<RecipeProvider>(create: (_) => RecipeProvider())
     ],
     child: const MyApp(),
   ));
