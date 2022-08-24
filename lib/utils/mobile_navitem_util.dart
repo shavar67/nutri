@@ -1,29 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:nuclear/screens/mobile/create_recipe_view.dart';
 import 'package:nuclear/screens/mobile/mobile_feed.dart';
+import 'package:nuclear/screens/mobile/proto_create_recipe.dart';
+import 'package:nuclear/screens/shared/settings_responsive.dart';
 
 class NavSwitcher {
   static Widget switchWidgetCases(int cases) {
     switch (cases) {
       case 0:
         {
-          return const MobileFeed();
+          return const CreateRecipeView();
         }
 
       case 1:
         {
-          return Container(
-            child: const Center(
-              child: Text('Discovery new recipes'),
-            ),
-          );
+          return const MobileFeed();
         }
 
       case 2:
         {
-          return const CreateRecipeView();
+          return const Preference();
         }
-
       default:
         return const MobileFeed();
     }

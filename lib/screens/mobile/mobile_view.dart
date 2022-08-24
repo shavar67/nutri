@@ -6,7 +6,6 @@ import 'package:nuclear/theme/styles.dart';
 import 'package:nuclear/utils/mobile_navitem_util.dart';
 import 'package:provider/provider.dart';
 
-import '../../constants/route_constants.dart';
 import '../../provider/theme_provider.dart';
 
 class MobileView extends StatefulWidget {
@@ -27,11 +26,7 @@ class _MobileViewState extends State<MobileView> {
   int _selectedIndex = 0;
   final GlobalKey<LiquidPullToRefreshState> _refreshIndicatorKey =
       GlobalKey<LiquidPullToRefreshState>();
-  final _titles = [
-    'Home',
-    'Discover',
-    'Recipes',
-  ];
+  final _titles = ['Home', 'Recipes', 'Settings'];
 
   @override
   void initState() {
@@ -59,28 +54,15 @@ class _MobileViewState extends State<MobileView> {
           // child: _switchWidgetCases(_selectedIndex),
         ),
         appBar: AppBar(
-            leading: null,
-            title: AutoSizeText(
-              _titles[_selectedIndex],
-              style: TextStyle(
-                  color: themeProvider.getDarkTheme
-                      ? Styles.white
-                      : Styles.defaultDarkModeBg),
-            ),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: GestureDetector(
-                  child: Icon(Icons.menu_open_sharp,
-                      color: themeProvider.getDarkTheme
-                          ? Styles.white
-                          : Styles.defaultDarkModeBg),
-                  onTap: () async {
-                    await Navigator.of(context).pushNamed(settingsRoute);
-                  },
-                ),
-              )
-            ]),
+          leading: null,
+          title: AutoSizeText(
+            _titles[_selectedIndex],
+            style: TextStyle(
+                color: themeProvider.getDarkTheme
+                    ? Styles.white
+                    : Styles.defaultDarkModeBg),
+          ),
+        ),
         bottomNavigationBar: BottomNavigationBar(
             elevation: 0,
             currentIndex: _selectedIndex,
@@ -97,9 +79,9 @@ class _MobileViewState extends State<MobileView> {
               BottomNavigationBarItem(
                   label: _titles[0], icon: const Icon(Icons.home)),
               BottomNavigationBarItem(
-                  icon: const Icon(Icons.explore_outlined), label: _titles[1]),
+                  icon: const Icon(Icons.menu_book_sharp), label: _titles[1]),
               BottomNavigationBarItem(
-                  icon: const Icon(Icons.menu_book_sharp), label: _titles[2]),
+                  icon: const Icon(Icons.settings_sharp), label: _titles[2]),
             ]));
   }
 
