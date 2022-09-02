@@ -151,6 +151,7 @@ class _MobileLoginViewState extends State<MobileLoginView> {
                           if (_formKey.currentState!.validate()) {
                             _formKey.currentState!.save();
                           }
+
                           await authService.signIn(
                               _emailController.text, _passwordController.text);
                         },

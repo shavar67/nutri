@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nuclear/screens/mobile/home.dart';
 import 'package:nuclear/screens/mobile/mobile_login.dart';
-import 'package:nuclear/screens/mobile/mobile_view.dart';
 import 'package:nuclear/screens/tablet/tablet.dart';
 import 'package:provider/provider.dart';
 

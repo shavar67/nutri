@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:logger/logger.dart';
 import 'package:nuclear/theme/styles.dart';
-import 'package:nuclear/utils/mobile_navitem_util.dart';
+import 'package:nuclear/widgets/mobile/switch_navbar_item.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/theme_provider.dart';

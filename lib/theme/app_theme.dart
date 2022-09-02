@@ -9,6 +9,8 @@ class AppTheme {
       scaffoldBackgroundColor: Styles.lightBgColor);
 
   static get darkTheme => ThemeData.dark().copyWith(
+      // useMaterial3: true,
+      // applyElevationOverlayColor: true,
       appBarTheme:
           const AppBarTheme(elevation: 0, color: Styles.defaultDarkModeBg),
       visualDensity: VisualDensity.adaptivePlatformDensity,
