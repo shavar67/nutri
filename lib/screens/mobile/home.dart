@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:logger/logger.dart';
 import 'package:nuclear/theme/styles.dart';
@@ -86,7 +87,12 @@ class _MobileViewState extends State<MobileView> {
   }
 
   Future<void> _onRefresh() async {
-    await Future.delayed(const Duration(seconds: 2))
-        .whenComplete(() => logger.i('done'));
+    await Future.delayed(const Duration(seconds: 2)).whenComplete(() {
+      if (_selectedIndex == 1) {
+        EasyLoading.showToast(
+            toastPosition: EasyLoadingToastPosition.bottom,
+            'refresh complete.');
+      }
+    });
   }
 }
