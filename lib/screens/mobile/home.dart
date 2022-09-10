@@ -78,11 +78,12 @@ class _MobileViewState extends State<MobileView> {
             }),
             items: [
               BottomNavigationBarItem(
-                  label: _titles[0], icon: const Icon(Icons.home)),
+                  label: _titles[0], icon: const Icon(Icons.home_outlined)),
               BottomNavigationBarItem(
-                  icon: const Icon(Icons.menu_book_sharp), label: _titles[1]),
+                  icon: const Icon(Icons.menu_book_outlined),
+                  label: _titles[1]),
               BottomNavigationBarItem(
-                  icon: const Icon(Icons.settings_sharp), label: _titles[2]),
+                  icon: const Icon(Icons.settings_outlined), label: _titles[2]),
             ]));
   }
 

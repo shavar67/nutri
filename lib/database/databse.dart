@@ -22,7 +22,7 @@ Future addRecipe(String recipeName, String recipeDescription, String userName,
           fromFirestore: RecipeModel.fromFirestore,
           toFirestore: (RecipeModel recipeModel, options) =>
               recipe.toFirestore())
-      .doc(uid.substring(0, 6) + recipeName);
+      .doc(uid.substring(0, 6) + recipeName.replaceAll(" ", ""));
 
   await documentReferencer.set(recipe).whenComplete(() {
     Future.delayed(const Duration(milliseconds: 250)).whenComplete(() {
